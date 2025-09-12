@@ -51,26 +51,26 @@ export default function HeroSection() {
       <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 5, pointerEvents: "none", background: "linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42))", transition: "background 300ms ease" }} />
 
       {/* Content */}
-      <div className="w-full max-w-6xl flex flex-col items-center text-center px-8 py-16 pt-0 relative z-20">
+      <div className="w-full max-w-6xl flex flex-col items-center text-center px-4 sm:px-8 py-10 sm:py-16 pt-0 relative z-20">
         {/* Headings */}
         <h1
-          className="font-semibold leading-tight mb-4 text-3xl sm:text-2xl md:text-[54px]"
+          className="font-semibold leading-tight mb-2 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-[54px]"
           style={{ fontFamily: "Kantumruy Pro, sans-serif", color: textColor }}
         >
           Experience Asia’s Premier
         </h1>
 
         <h2
-          className="font-semibold leading-tight mb-4 text-3xl sm:text-4xl md:text-[54px]"
+          className="font-semibold leading-tight mb-2 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-[54px]"
           style={{ fontFamily: "Kantumruy Pro, sans-serif", color: textColor }}
         >
           Food Industry Exhibition
         </h2>
 
         {/* Edition + tagline */}
-        <div className="flex flex-col sm:flex-row items-center justify-center mb-4 relative">
+        <div className="flex flex-col sm:flex-row items-center justify-center mb-2 sm:mb-4 relative">
           <span
-            className="text-[#E41146] font-semibold mr-0 sm:mr-4 relative inline-block text-xl sm:text-3xl md:text-[54px] whitespace-nowrap sm:whitespace-normal mb-2 sm:mb-0"
+            className="text-[#E41146] font-semibold mr-0 sm:mr-4 relative inline-block text-lg sm:text-2xl md:text-3xl lg:text-[54px] whitespace-nowrap sm:whitespace-normal mb-2 sm:mb-0"
             style={{ fontFamily: "Kantumruy Pro, sans-serif" }}
           >
             15th Edition
@@ -79,7 +79,7 @@ export default function HeroSection() {
               alt="underline"
               width={270}
               height={40}
-              className="hidden sm:block absolute left-1/2 -translate-x-1/2 w-[160px] sm:w-[220px] md:w-[270px]"
+              className="hidden sm:block absolute left-1/2 -translate-x-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[270px]"
               style={{
                 bottom: -23,
                 pointerEvents: "none",
@@ -90,23 +90,23 @@ export default function HeroSection() {
             />
           </span>
 
-          <span className="text-2xl md:text-3xl lg:text-4xl font-bold" style={{ color: textColor }}>
+          <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold" style={{ color: textColor }}>
             - bringing Innovation,
           </span>
         </div>
 
-        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style={{ color: textColor }}>
+        <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-8" style={{ color: textColor }}>
           Opportunities & Networking
         </h3>
 
         {/* Event Info + Buttons */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-6 w-full">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 mt-4 sm:mt-6 w-full">
           {/* Date + Location */}
-          <div className="flex flex-col gap-6 items-center text-center md:text-left">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-md ml-[5px]">
+          <div className="flex flex-col gap-4 sm:gap-6 items-center text-center md:text-left">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="p-2 sm:p-3 rounded-md ml-[2px] sm:ml-[5px]">
                 {/* Calendar icon */} 
-                <Image src="/icons/calander.png" alt="calendar" width={36} height={36} className="inline-block" />
+                <Image src="/icons/calander.png" alt="calendar" width={28} height={28} className="inline-block" />
               </div>
               <div className="text-left" style={{ fontFamily: "Poppins, sans-serif", fontSize: 16 }}>
                 <div className="font-bold" style={{ color: textColor }}>
@@ -115,9 +115,9 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-md ml-[20px]">
-                <Image src="/icons/location.png" alt="location" width={32} height={32} className="inline-block" />
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="p-2 sm:p-3 rounded-md ml-[8px] sm:ml-[20px]">
+                <Image src="/icons/location.png" alt="location" width={24} height={24} className="inline-block" />
               </div>
               <div className="text-left" style={{ fontFamily: "Poppins, sans-serif", fontSize: 16 }}>
                 <div className="font-bold" style={{ color: textColor }}>
@@ -129,9 +129,9 @@ export default function HeroSection() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col gap-4 items-center w-full sm:w-auto">
+          <div className="flex flex-col gap-3 sm:gap-4 items-center w-full sm:w-auto">
             <button
-              className="px-8 py-3 rounded-lg bg-lime-400 text-white font-bold border-2 border-lime-600 shadow-md hover:bg-lime-500 transition-all w-full sm:w-44"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-lime-400 text-white font-bold border-2 border-lime-600 shadow-md hover:bg-lime-500 transition-all w-full sm:w-44"
               style={{ boxShadow: "0 6px 12px 0 #b6d43a" }}
               onClick={() => (window.location.href = "/bookstall")}
             >
@@ -139,7 +139,7 @@ export default function HeroSection() {
             </button>
 
             <button
-              className="px-8 py-3 rounded-lg bg-yellow-400 text-white font-bold border-2 border-yellow-600 shadow-md hover:bg-yellow-500 transition-all w-full sm:w-44"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-yellow-400 text-white font-bold border-2 border-yellow-600 shadow-md hover:bg-yellow-500 transition-all w-full sm:w-44"
               style={{ boxShadow: "0 6px 12px 0 #f7d13b" }}
               onClick={() => (window.location.href = "/visitor")}
             >

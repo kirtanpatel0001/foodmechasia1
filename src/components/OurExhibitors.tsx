@@ -157,14 +157,17 @@ const OurExhibitors: React.FC = () => {
   const currentExhibitors = exhibitors.slice(startIdx, endIdx);
 
   return (
-    <div ref={containerRef} className="min-h-screen flex flex-col items-center py-16 w-full mx-auto overflow-hidden bg-white">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-10">Our Exhibitors</h1>
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center py-10 sm:py-16 w-full mx-auto overflow-hidden bg-white">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-10">Our Exhibitors</h1>
 
-      <div className="grid grid-cols-5 gap-6 w-full max-w-6xl px-4" style={{ gridTemplateRows: 'repeat(4, minmax(0, 1fr))' }}>
+      <div
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 w-full max-w-6xl px-2 sm:px-4"
+        style={{ gridTemplateRows: 'repeat(4, minmax(0, 1fr))' }}
+      >
         {currentExhibitors.map((src, i) => (
           <div
             key={startIdx + i}
-            className={`flex flex-col items-center rounded-2xl p-6 relative ${show ? 'animate-fade-in-left' : ''}`}
+            className={`flex flex-col items-center rounded-2xl p-3 sm:p-4 md:p-6 relative ${show ? 'animate-fade-in-left' : ''}`}
             style={
               show
                 ? {
@@ -176,7 +179,7 @@ const OurExhibitors: React.FC = () => {
             }
           >
             <div className="w-full flex flex-col items-center mb-2">
-              <div className="w-full h-28 relative flex items-center justify-center">
+              <div className="w-full h-20 sm:h-24 md:h-28 relative flex items-center justify-center">
                 <Image
                   src={src}
                   alt={`Exhibitor ${startIdx + i + 1}`}
@@ -191,11 +194,11 @@ const OurExhibitors: React.FC = () => {
       </div>
 
       {/* Pagination controls */}
-      <div className="flex items-center justify-center gap-2 mt-8">
+      <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
         <button
           onClick={() => setPage((p) => Math.max(0, p - 1))}
           disabled={page === 0}
-          className="px-3 py-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+          className="px-2 sm:px-3 py-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
           aria-label="Previous page"
         >
           &larr;
@@ -203,7 +206,7 @@ const OurExhibitors: React.FC = () => {
         {Array.from({ length: totalPages }).map((_, idx) => (
           <span
             key={idx}
-            className={`inline-block w-3 h-3 rounded-full mx-1 ${idx === page ? 'bg-violet-500' : 'bg-gray-300'}`}
+            className={`inline-block w-2 h-2 sm:w-3 sm:h-3 rounded-full mx-0.5 sm:mx-1 ${idx === page ? 'bg-violet-500' : 'bg-gray-300'}`}
             style={{ cursor: 'pointer' }}
             onClick={() => setPage(idx)}
           />
@@ -211,7 +214,7 @@ const OurExhibitors: React.FC = () => {
         <button
           onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
           disabled={page === totalPages - 1}
-          className="px-3 py-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+          className="px-2 sm:px-3 py-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
           aria-label="Next page"
         >
           &rarr;

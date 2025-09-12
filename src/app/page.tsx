@@ -16,21 +16,16 @@ export default function Home() {
     <main>
       <HeroSection />
       <Expo1 />
-  <Highlight />
-  <Information />
-  <Exhibition />
-  <ExhibitionFeatures />
-    <Sposner />
+      <Highlight />
+      <Information />
+      <Exhibition />
+      <section id="exhibition-benefits-section"><ExhibitionFeatures /></section>
+      <section id="sponsors-section"><Sposner /></section>
       <ExhibitionUnder />
-        <SponsorBecome />
-
-  <Partners />
-  <OurExhibitors />
-  <Feedback />
-
-
-
-
+      <section id="become-sponsor-section"><SponsorBecome /></section>
+      <Partners />
+      <OurExhibitors />
+      <section id="feedback-section"><Feedback /></section>
     </main>
   );
 }

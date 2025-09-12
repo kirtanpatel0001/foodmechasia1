@@ -67,36 +67,36 @@ const BookStall: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-[#f7fbe7]">
       {/* Diagonal background stripes */}
-          <Image
-            src="/background/sponserbecome .svg"
-            alt="background stripes"
-            fill
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            style={{ pointerEvents: "none" }}
-          />
+      <Image
+        src="/background/sponserbecome .svg"
+        alt="background stripes"
+        fill
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ pointerEvents: "none" }}
+      />
 
-      <div className="relative z-10 flex flex-col md:flex-row w-full max-w-[1280px] mx-auto py-12 px-4 gap-8 items-start">
+      <div className="relative z-10 flex flex-col md:flex-row w-full max-w-[1280px] mx-auto py-6 sm:py-12 px-2 sm:px-4 gap-4 sm:gap-8 items-start">
         {/* Left: Form and headings */}
-        <div className="flex-1 flex flex-col items-center justify-center px-2">
+        <div className="flex-1 flex flex-col items-center justify-center px-1 sm:px-2">
           <div className="w-full max-w-xl mx-auto">
-            <div className="text-center mb-4">
-              <h2 className="text-3xl font-bold mb-1">Contact with us For Book Stall</h2>
+            <div className="text-center mb-2 sm:mb-4 pt-2 sm:pt-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-1">Contact with us For Book Stall</h2>
             </div>
-            <div className="flex flex-row flex-nowrap justify-center items-center gap-8 mb-8 w-full">
-              <a href="tel:+919898123103" className="flex items-center gap-2 text-lg font-bold text-black whitespace-nowrap">
-                <span className="text-pink-500 text-2xl">&#128222;</span>+91 98981 23103
+            <div className="flex flex-col sm:flex-row flex-nowrap justify-center items-center gap-2 sm:gap-8 mb-4 sm:mb-8 w-full">
+              <a href="tel:+919898123103" className="flex items-center gap-1 sm:gap-2 text-base sm:text-lg font-bold text-black whitespace-nowrap mb-2 sm:mb-0">
+                <span className="text-pink-500 text-xl sm:text-2xl">&#128222;</span>+91 98981 23103
               </a>
-              <a href="tel:+919898036959" className="flex items-center gap-2 text-lg font-bold text-black whitespace-nowrap">
-                <span className="text-pink-500 text-2xl">&#128222;</span>+91 98980 36959
+              <a href="tel:+919898036959" className="flex items-center gap-1 sm:gap-2 text-base sm:text-lg font-bold text-black whitespace-nowrap mb-2 sm:mb-0">
+                <span className="text-pink-500 text-xl sm:text-2xl">&#128222;</span>+91 98980 36959
               </a>
-              <a href="tel:+919898072103" className="flex items-center gap-2 text-lg font-bold text-black whitespace-nowrap">
-                <span className="text-pink-500 text-2xl">&#128222;</span>+91 98980 72103
+              <a href="tel:+919898072103" className="flex items-center gap-1 sm:gap-2 text-base sm:text-lg font-bold text-black whitespace-nowrap">
+                <span className="text-pink-500 text-xl sm:text-2xl">&#128222;</span>+91 98980 72103
               </a>
             </div>
 
             <form
               onSubmit={handleSubmit}
-              className="space-y-4 bg-white/90 rounded-xl shadow-lg p-8 border border-green-200"
+              className="space-y-3 sm:space-y-4 bg-white/90 rounded-xl shadow-lg p-4 sm:p-8 border border-green-200"
             >
               {success && (
                 <div className="text-green-700 text-center font-semibold bg-green-100 border border-green-300 rounded-md py-2 mb-2 animate-fade-in">
@@ -115,18 +115,18 @@ const BookStall: React.FC = () => {
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                 required
               />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
                 <input
                   type="text"
                   name="businessName"
                   placeholder="Business Name"
                   value={formData.businessName}
                   onChange={handleChange}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                  className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                   required
                 />
                 <input
@@ -135,19 +135,19 @@ const BookStall: React.FC = () => {
                   placeholder="City"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                  className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                   required
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4">
                 <input
                   type="tel"
                   name="contactNumber"
                   placeholder="Contact Number"
                   value={formData.contactNumber}
                   onChange={handleChange}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                  className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                   required
                 />
                 <input
@@ -156,7 +156,7 @@ const BookStall: React.FC = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                  className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                   required
                 />
               </div>
@@ -167,7 +167,7 @@ const BookStall: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-lg font-semibold"
+                className="w-full p-2 sm:p-3 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-green-300 text-base sm:text-lg font-semibold"
                 required
               />
 
@@ -182,8 +182,8 @@ const BookStall: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Poster image */}
-        <div className="flex-1 flex items-center justify-center relative px-2">
+        {/* Right: Poster image (hidden on mobile) */}
+        <div className="hidden md:flex flex-1 items-center justify-center relative px-2">
           <Image
             src="/background/poster.png"
             alt="Food Mech Poster"

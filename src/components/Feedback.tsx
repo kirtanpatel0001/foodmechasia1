@@ -32,7 +32,7 @@ const Feedback: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center py-12"
+      className="min-h-screen flex flex-col items-center justify-center py-8 sm:py-12"
       style={{
         backgroundImage: "url('/background/worldmap.png')",
         backgroundSize: "cover",
@@ -41,25 +41,25 @@ const Feedback: React.FC = () => {
         backgroundColor: "#FCC900",
       }}
     >
-      <div className="flex flex-col items-center justify-center w-full rounded-xl p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-black">
+      <div className="flex flex-col items-center justify-center w-full rounded-xl px-2 sm:px-6 md:px-8 py-6 sm:py-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center text-black">
           <span>Our Feedback</span>
           <span className="block">Testimonials of Last Exhibition</span>
         </h1>
 
         <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {feedbacks.map(({ id, title, description }) => (
               <div
                 key={id}
                 className="w-full rounded-lg overflow-hidden bg-black shadow-md"
               >
                 {/* Responsive iframe wrapper */}
-                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     title={`youtube-video-${id}`}
                     src={`https://www.youtube.com/embed/${id}`}
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                    className="absolute top-0 left-0 w-full h-full"
                     frameBorder={0}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -68,14 +68,14 @@ const Feedback: React.FC = () => {
                 </div>
 
                 {/* Caption / link */}
-                <div className="p-3 bg-white text-black">
-                  <h3 className="font-semibold text-lg">{title}</h3>
-                  <p className="text-sm text-gray-700 mb-2">{description}</p>
+                <div className="p-2 sm:p-3 bg-white text-black">
+                  <h3 className="font-semibold text-base sm:text-lg">{title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-700 mb-2">{description}</p>
                   <a
                     href={`https://www.youtube.com/watch?v=${id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block text-sm text-blue-600 hover:underline"
+                    className="inline-block text-xs sm:text-sm text-blue-600 hover:underline"
                   >
                     Watch on YouTube
                   </a>

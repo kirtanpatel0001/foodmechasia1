@@ -31,7 +31,6 @@ const sponsorList = [
   "/sponser/SOCIETY TEA.jpg",
   "/sponser/SR Equip..png",
   "/sponser/sumul eblon.png",
-  "/sponser/Vasy-New-Logo_white (1).png",
   "/sponser/visvakarma techno steel.png",
 ];
 
@@ -74,41 +73,40 @@ const Sponsors: React.FC = () => {
   const logos = sponsorData[category];
 
   return (
-    <div
+    <section
       className="min-h-screen w-full flex flex-col items-center bg-cover bg-center px-4 sm:px-6 md:px-8 py-6"
       style={{ backgroundImage: "url('/background/backgroundicons.png')" }}
     >
       <h1 className="text-3xl sm:text-4xl font-bold text-center mt-2 mb-4">Our Sponsors</h1>
-      
-      <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+
+      <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 w-full">
         {['all', 'title', 'main'].map((cat) => (
           <button
             key={cat}
-            className={`px-4 sm:px-6 py-2 rounded-xl font-semibold focus:outline-none ${category === cat ? 'bg-[#E04B4D] text-white shadow border-2 border-black' : 'bg-transparent text-black transition-all'}`}
+            className={`px-4 sm:px-6 py-2 rounded-xl font-semibold focus:outline-none transition-all duration-200 ${category === cat ? 'bg-[#E04B4D] text-white shadow border-2 border-black' : 'bg-white/80 text-black border border-gray-300 hover:bg-[#E04B4D] hover:text-white'}`}
             onClick={() => handleCategory(cat as 'all' | 'title' | 'main')}
+            aria-pressed={category === cat}
           >
             {cat === 'all' ? 'All Sponsors' : cat === 'title' ? 'Title Sponsor' : 'Main Sponsor'}
           </button>
         ))}
-      </div>
+      </nav>
 
       <div
         className={`w-full max-w-5xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center justify-center ${
-          (category === 'title' || category === 'main' || category === 'all')
-            ? (showAnim ? slideUpClass : slideUpHiddenClass)
-            : ''
+          showAnim ? slideUpClass : slideUpHiddenClass
         }`}
       >
         {logos.map((src, idx) => (
           <div
             key={idx}
-            className={`flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 aspect-[4/3] ${getLogoAnimClass(logoAnim)} hover:scale-105 hover:shadow-2xl transform-gpu`}
+            className={`flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 aspect-[4/3] bg-white/80 shadow-sm ${getLogoAnimClass(logoAnim)} hover:scale-105 hover:shadow-2xl transform-gpu`}
             style={{ transitionDelay: logoAnim ? `${idx * 90}ms` : '0ms' }}
           >
             <Image
               src={src}
               alt={`Sponsor ${idx + 1}`}
-              className="object-contain w-full h-full max-h-24 sm:max-h-28 md:max-h-32"
+              className="object-contain w-full h-full max-h-20 sm:max-h-24 md:max-h-32"
               width={200}
               height={150}
               priority={idx < 2}
@@ -117,7 +115,7 @@ const Sponsors: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

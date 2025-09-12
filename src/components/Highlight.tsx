@@ -105,17 +105,27 @@ export default function Highlight() {
     <section suppressHydrationWarning className="flex flex-col items-center justify-start bg-white w-full py-12">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-8 md:mb-10">Showcasing the Highlights of Our Exhibitions</h2>
 
-  <div ref={containerRef} className="relative w-full flex justify-center items-center" style={{ height: isSmall ? 300 : 420, perspective: isSmall ? 600 : 800 }}>
-        <button
-          onClick={handlePrev}
-          aria-label="Previous"
-          className="absolute left-2 md:left-8 z-20 bg-black/90 rounded-full shadow p-2 hover:bg-blue-100 transition"
-          style={{ top: '50%', transform: 'translateY(-50%)' }}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
-        </button>
+      <div
+        ref={containerRef}
+        className="relative w-full flex justify-center items-center"
+        style={{ height: isSmall ? 300 : 420, perspective: isSmall ? 600 : 800 }}
+      >
+        {/* Hide arrows on mobile */}
+        {!isSmall && (
+          <button
+            onClick={handlePrev}
+            aria-label="Previous"
+            className="absolute left-2 md:left-8 z-20 bg-black/90 rounded-full shadow p-2 hover:bg-blue-100 transition"
+            style={{ top: '50%', transform: 'translateY(-50%)' }}
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+        )}
 
-        <div className="relative flex items-center justify-center" style={{ width: '100%', maxWidth: isSmall ? 420 : 820, height: isSmall ? 300 : 420 }}>
+        <div
+          className="relative flex items-center justify-center"
+          style={{ width: '100%', maxWidth: isSmall ? 420 : 820, height: isSmall ? 300 : 420 }}
+        >
           {highlights.map((img, i) => {
             const n = highlights.length;
             let delta = i - center;
@@ -185,14 +195,17 @@ export default function Highlight() {
           })}
         </div>
 
-        <button
-          onClick={handleNext}
-          aria-label="Next"
-          className="absolute right-2 md:right-8 z-20 bg-black/90 rounded-full shadow p-2 hover:bg-blue-100 transition"
-          style={{ top: '50%', transform: 'translateY(-50%)' }}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-        </button>
+        {/* Hide arrows on mobile */}
+        {!isSmall && (
+          <button
+            onClick={handleNext}
+            aria-label="Next"
+            className="absolute right-2 md:right-8 z-20 bg-black/90 rounded-full shadow p-2 hover:bg-blue-100 transition"
+            style={{ top: '50%', transform: 'translateY(-50%)' }}
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+        )}
       </div>
     </section>
   );
