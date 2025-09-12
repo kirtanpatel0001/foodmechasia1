@@ -12,7 +12,7 @@ interface Contact {
   createdAt: string;
 }
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://foodmechasia1.onrender.com";
 
 export default function ContactAdmin() {
   const [contacts, setContacts] = useState<Contact[]>([]);

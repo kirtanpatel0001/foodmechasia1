@@ -27,7 +27,7 @@ const ContactUs: React.FC = () => {
       message: formData.message,
     };
 
-    fetch("http://localhost:5000/api/contact", {
+  fetch("https://foodmechasia1.onrender.com/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

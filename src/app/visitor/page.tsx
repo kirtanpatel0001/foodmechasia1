@@ -75,7 +75,7 @@ const Visitor: React.FC = () => {
     };
 
     // Send to backend
-    fetch("http://localhost:5000/api/visitorpass", {
+  fetch("https://foodmechasia1.onrender.com/api/visitorpass", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
