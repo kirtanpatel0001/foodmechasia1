@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,7 +14,7 @@ export default function AdminPanel() {
           <Link href="/admin-panel/contact" className="text-base font-medium text-gray-700 hover:text-green-700 transition">Contact Us</Link>
           <Link href="/admin-panel/bookstall" className="text-base font-medium text-gray-700 hover:text-green-700 transition">Book Stall</Link>
           <Link href="/admin-panel/sponsor" className="text-base font-medium text-gray-700 hover:text-green-700 transition">Sponsor</Link>
-          <Link href="/admin-panel/visitor" className="text-base font-medium text-gray-700 hover:text-green-700 transition">Visitor</Link>
+          <Link href="/admin-panel/visitorpass" className="text-base font-medium text-gray-700 hover:text-green-700 transition">Visitor Pass</Link>
         </div>
         <div className="text-gray-500 text-sm">Welcome, Foodmechasia@1060</div>
       </nav>
@@ -37,8 +36,8 @@ export default function AdminPanel() {
               <h3 className="text-xl font-semibold text-blue-800 mb-2">Sponsor</h3>
               <p className="text-gray-700">Review and update sponsor details.</p>
             </section>
-            <section className="bg-pink-100 rounded-lg p-6 shadow">
-              <h3 className="text-xl font-semibold text-pink-800 mb-2">Visitor</h3>
+            <section className="bg-purple-100 rounded-lg p-6 shadow">
+              <h3 className="text-xl font-semibold text-purple-800 mb-2">Visitor Pass</h3>
               <p className="text-gray-700">See visitor registrations and passes.</p>
             </section>
           </div>
