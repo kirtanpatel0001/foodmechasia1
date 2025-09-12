@@ -18,11 +18,32 @@ const ContactUs: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-      setFormData({ fullName: "", mobile: "", email: "", message: "" });
-    }, 700);
+
+    // Prepare payload
+    const payload = {
+      name: formData.fullName,
+      mobile: formData.mobile,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          setSuccess(true);
+          setFormData({ fullName: "", mobile: "", email: "", message: "" });
+        }
+      })
+      .catch(() => {
+        // handle error
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

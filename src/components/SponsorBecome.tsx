@@ -19,15 +19,34 @@ const SponsorBecome: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Simulate successful submission
-    setSuccess(true);
-    setFormData({
-      fullName: '', businessName: '', city: '', contactNumber: '', email: '', message: ''
-    });
-    setWordCount(0);
+    // Prepare payload
+    const payload = {
+      name: formData.fullName,
+      businessName: formData.businessName,
+      city: formData.city,
+      contactNumber: formData.contactNumber,
+      email: formData.email,
+      message: formData.message,
+    };
 
-    // Remove success message after 3 seconds
-    setTimeout(() => setSuccess(false), 3000);
+    fetch("http://localhost:5000/api/sponsor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          setSuccess(true);
+          setFormData({
+            fullName: '', businessName: '', city: '', contactNumber: '', email: '', message: ''
+          });
+          setWordCount(0);
+          setTimeout(() => setSuccess(false), 3000);
+        }
+      })
+      .catch(() => {
+        // handle error
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
