@@ -4,6 +4,45 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import compression from 'compression';
+import nodemailer from 'nodemailer';
+// Setup Nodemailer transporter (using Gmail)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER || 'marketing.foodmechasia@gmail.com',
+    pass: process.env.EMAIL_PASS || 'your_app_password_here', // Use App Password for Gmail
+  },
+});
+
+const sendNotificationEmail = async (subject, html) => {
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER || 'marketing.foodmechasia@gmail.com',
+    to: 'marketing.foodmechasia@gmail.com',
+    subject,
+    html,
+  });
+};
+
+// Modern email template generator
+function getModernEmailTemplate({ title, details }) {
+  return `
+    <div style="background:#f7f7f7;padding:32px 0;font-family:Arial,sans-serif;">
+      <div style="max-width:480px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 2px 8px #e0e0e0;padding:32px 24px;">
+        <div style="text-align:center;margin-bottom:24px;">
+          <img src='https://foodmechasia1.onrender.com/LOGO/LOGO.png' alt='FoodMechAsia Logo' style='height:64px;margin-bottom:8px;border-radius:8px;' />
+          <h2 style="color:#2e7d32;font-size:1.6em;margin:0 0 8px 0;">${title}</h2>
+        </div>
+        <div style="font-size:1em;color:#333;line-height:1.7;">
+          ${details}
+        </div>
+        <div style="margin-top:32px;text-align:center;color:#888;font-size:0.9em;">
+          FoodMechAsia | marketing.foodmechasia@gmail.com
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 
 dotenv.config();
 
@@ -78,6 +117,15 @@ app.post('/api/contact', async (req, res, next) => {
   try {
     const contact = new Contact(req.body);
     await contact.save();
+    // Send email notification with modern design
+    const details = `
+      <p><strong>Name:</strong> ${contact.name}</p>
+      <p><strong>Mobile:</strong> ${contact.mobile}</p>
+      <p><strong>Email:</strong> ${contact.email}</p>
+      <p><strong>Message:</strong> ${contact.message}</p>
+    `;
+    const html = getModernEmailTemplate({ title: 'New Contact Submission', details });
+    await sendNotificationEmail('New Contact Submission', html);
     res.status(201).json({ success: true });
   } catch (err) {
     next(err);
@@ -93,6 +141,17 @@ app.post('/api/sponsor', async (req, res, next) => {
   try {
     const sponsor = new Sponsor(req.body);
     await sponsor.save();
+    // Send email notification with modern design
+    const details = `
+      <p><strong>Name:</strong> ${sponsor.name}</p>
+      <p><strong>Business Name:</strong> ${sponsor.businessName}</p>
+      <p><strong>City:</strong> ${sponsor.city}</p>
+      <p><strong>Contact Number:</strong> ${sponsor.contactNumber}</p>
+      <p><strong>Email:</strong> ${sponsor.email}</p>
+      <p><strong>Message:</strong> ${sponsor.message}</p>
+    `;
+    const html = getModernEmailTemplate({ title: 'New Sponsor Submission', details });
+    await sendNotificationEmail('New Sponsor Submission', html);
     res.status(201).json({ success: true });
   } catch (err) {
     next(err);
@@ -108,6 +167,17 @@ app.post('/api/bookstall', async (req, res, next) => {
   try {
     const bookStall = new BookStall(req.body);
     await bookStall.save();
+    // Send email notification with modern design
+    const details = `
+      <p><strong>Full Name:</strong> ${bookStall.fullName}</p>
+      <p><strong>Business Name:</strong> ${bookStall.businessName}</p>
+      <p><strong>City:</strong> ${bookStall.city}</p>
+      <p><strong>Contact Number:</strong> ${bookStall.contactNumber}</p>
+      <p><strong>Email:</strong> ${bookStall.email}</p>
+      <p><strong>Message:</strong> ${bookStall.message}</p>
+    `;
+    const html = getModernEmailTemplate({ title: 'New Book Stall Submission', details });
+    await sendNotificationEmail('New Book Stall Submission', html);
     res.status(201).json({ success: true });
   } catch (err) {
     next(err);

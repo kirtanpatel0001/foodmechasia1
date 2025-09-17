@@ -66,6 +66,7 @@ const Navbar = () => {
           <SectionLink section="sponsors-section">Our Sponsors</SectionLink>
           <SectionLink section="become-sponsor-section">Become Sponsor</SectionLink>
           <Link href="/blog" className="font-bold text-sm hover:text-pink-600">Blog</Link>
+          <a href="/FM BROCHURE 2026.pdf" download className="font-bold text-sm hover:text-pink-600">BROCHURE</a>
           <Link href="/visitor" className="ml-2 lg:ml-4 px-4 lg:px-5 py-2 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 transition-all border-2 border-black">Visitor Pass</Link>
           <Link href="/bookstall" className="ml-2 lg:ml-4 px-4 lg:px-5 py-2 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 transition-all border-2 border-black">Book Stall</Link>
         </div>
@@ -95,6 +96,7 @@ const Navbar = () => {
             <SectionLink section="sponsors-section">Our Sponsors</SectionLink>
             <SectionLink section="become-sponsor-section">Become Sponsor</SectionLink>
             <Link href="/blog" onClick={() => setIsOpen(false)} className="font-bold text-sm hover:text-pink-600">Blog</Link>
+            <a href="/FM BROCHURE 2026.pdf" download onClick={() => setIsOpen(false)} className="font-bold text-sm hover:text-pink-600">BROCHURE</a>
             <div className="flex flex-col sm:flex-row sm:space-x-2 sm:mt-2">
               <Link href="/visitor" onClick={() => setIsOpen(false)} className="w-full text-center sm:w-auto mt-2 px-4 py-2 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 transition-all border-2 border-black">Visitor</Link>
               <Link href="/bookstall" onClick={() => setIsOpen(false)} className="w-full text-center sm:w-auto mt-2 px-4 py-2 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 transition-all border-2 border-black">Book Stall</Link>

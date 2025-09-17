@@ -29,7 +29,7 @@ const SponsorBecome: React.FC = () => {
       message: formData.message,
     };
 
-    fetch("http://localhost:5000/api/sponsor", {
+  fetch("https://foodmechasia1.onrender.com/api/sponsor", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

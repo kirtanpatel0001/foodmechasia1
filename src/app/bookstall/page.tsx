@@ -23,7 +23,7 @@ const BookStall: React.FC = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:5000/api/bookstall", {
+  const response = await fetch("https://foodmechasia1.onrender.com/api/bookstall", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

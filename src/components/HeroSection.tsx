@@ -117,7 +117,7 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-2 sm:gap-4">
               <div className="p-2 sm:p-3 rounded-md ml-[8px] sm:ml-[20px]">
-                <Image src="/icons/location.png" alt="location" width={24} height={24} className="inline-block" />
+                <Image src="/icons/loc.png" alt="location" width={24} height={24} className="inline-block" />
               </div>
               <div className="text-left" style={{ fontFamily: "Poppins, sans-serif", fontSize: 16 }}>
                 <div className="font-bold" style={{ color: textColor }}>
@@ -131,15 +131,15 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="flex flex-col gap-3 sm:gap-4 items-center w-full sm:w-auto">
             <button
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-lime-400 text-white font-bold border-2 border-lime-600 shadow-md hover:bg-lime-500 transition-all w-full sm:w-44"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-lime-400 text-white font-bold border-2 border-lime-600 shadow-md hover:bg-lime-500 transition-all w-full sm:w-50"
               style={{ boxShadow: "0 6px 12px 0 #b6d43a" }}
               onClick={() => (window.location.href = "/bookstall")}
             >
-              Book Now
+              Book Stall Now
             </button>
 
             <button
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-yellow-400 text-white font-bold border-2 border-yellow-600 shadow-md hover:bg-yellow-500 transition-all w-full sm:w-44"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-yellow-400 text-white font-bold border-2 border-yellow-600 shadow-md hover:bg-yellow-500 transition-all w-full sm:w-50"
               style={{ boxShadow: "0 6px 12px 0 #f7d13b" }}
               onClick={() => (window.location.href = "/visitor")}
             >

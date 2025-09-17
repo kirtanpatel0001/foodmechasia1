@@ -14,7 +14,7 @@ interface Sponsor {
   createdAt: string;
 }
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://foodmechasia1.onrender.com";
 
 export default function SponsorAdmin() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);

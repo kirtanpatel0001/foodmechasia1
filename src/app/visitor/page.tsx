@@ -75,7 +75,7 @@ const Visitor: React.FC = () => {
     };
 
     // Send to backend
-    fetch("http://localhost:5000/api/visitorpass", {
+  fetch("https://foodmechasia1.onrender.com/api/visitorpass", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -272,56 +272,48 @@ const Visitor: React.FC = () => {
               {/* Pass */}
               <div
                 ref={passRef}
-                className="bg-[#e6f7ff] rounded-2xl shadow-lg p-8 w-full max-w-2xl border-2 border-yellow-400 relative overflow-hidden"
-                style={{ minHeight: 710 }}
+                className="bg-white rounded-2xl shadow-lg w-full max-w-2xl border relative overflow-hidden"
+                style={{ minHeight: 760 }}
               >
-                {/* Top images */}
-                <Image
-                  src="/images/pass/t1.png"
-                  alt="top-left"
-                  width={112}
-                  height={112}
-                  className="h-24 md:h-28 absolute left-5 top-0 object-contain"
-                  priority
-                />
-                <Image
-                  src="/images/pass/t2.png"
-                  alt="top-right"
-                  width={112}
-                  height={80}
-                  className="h-24 md:h-20 absolute right-5 top-0 object-contain"
-                  priority
-                />
+                {/* bottom background image (decorative) */}
+              
+
+                {/* Header with top images inside the card */}
+                <div className="w-full flex items-start justify-between px-0 pt-0 z-20">
+                  <div className="flex-shrink-0">
+                    <div className="relative w-16 h-12 md:w-24 md:h-24">
+                      <Image src="/pass/top1.png" alt="top-left" fill className="object-contain" />
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <div className="relative w-45 h-12 md:w-140 md:h-20">
+                      <Image src="/pass/top2.png" alt="top-right" fill className="object-contain" />
+                    </div>
+                  </div>
+                </div>
 
                 {/* ENTRY PASS banner */}
-                <div className="w-full flex justify-center mt-20 z-10">
-                  <div className="bg-[#d0021b] text-white font-extrabold text-3xl md:text-4xl px-12 py-3 rounded-b-lg tracking-widest">
+                <div className="w-full flex justify-center pt-2 z-10">
+                  <div className="bg-[#b7e434] text-[#d0021b] font-extrabold text-3xl md:text-4xl px-14 py-3 rounded-b-lg tracking-widest">
                     ENTRY PASS
                   </div>
                 </div>
 
                 {/* QR */}
-                <div className="flex flex-col items-center mt-6 px-4 z-10">
-                  <div
-                    className="bg-white rounded-3xl p-4 shadow-2xl border border-gray-100"
-                    style={{ width: 360 }}
-                  >
-                    <div className="flex items-center justify-center p-1">
-                        <LazyQRCode value={entryPass.registrationCode} size={260} />
+                <div className="flex flex-col items-center mt-10 px-4 z-20">
+                  <div className="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100" style={{ width: 380 }}>
+                    <div className="flex items-center justify-center p-2">
+                      <LazyQRCode value={entryPass.registrationCode} size={220} />
                     </div>
                     <div className="mt-2 text-center">
-                      <div className="font-semibold text-sm text-gray-700">
-                        Registration Code
-                      </div>
-                      <div className="text-base md:text-lg font-bold tracking-widest text-gray-900">
-                        {entryPass.registrationCode}
-                      </div>
+                      <div className="font-semibold text-sm text-gray-700">Registration Code</div>
+                      <div className="text-base md:text-lg font-bold tracking-widest text-gray-900">{entryPass.registrationCode}</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Footer logos */}
-                <div className="absolute left-0 bottom-0 w-full flex flex-col items-center px-6 py-4 z-10 bg-transparent">
+                {/* Footer logos and organizer text */}
+                <div className="absolute left-0 bottom-20 w-full flex flex-col items-center px-6 z-30">
                   <div className="w-full flex justify-around items-start mb-2">
                     <div className="text-center w-1/3">
                       <div className="text-xs text-gray-600">ORGANIZED BY</div>
@@ -336,31 +328,18 @@ const Visitor: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="w-full flex justify-around items-center">
-                    <Image
-                      src="/images/pass/logo3.jpg"
-                      alt="logo3"
-                      width={40}
-                      height={40}
-                      className="h-10 object-contain"
-                    />
-                    <Image
-                      src="/images/pass/logo2.png"
-                      alt="logo2"
-                      width={40}
-                      height={40}
-                      className="h-10 object-contain"
-                    />
-                    <Image
-                      src="/images/pass/logo21.png"
-                      alt="logo21"
-                      width={40}
-                      height={40}
-                      className="h-10 object-contain"
-                    />
+                  <div className="w-full flex justify-between items-center px-9">
+                    <Image src="/pass/logo1.png" alt="logo1" width={80} height={60} className="object-contain" />
+                    <Image src="/pass/logo.png" alt="logo2" width={180} height={60} className="object-contain" />
+                    <Image src="/pass/logo3.png" alt="logo3" width={80} height={60} className="object-contain" />
                   </div>
+
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-11 md:h-12 lg:h-12">
+                  <Image src="/pass/bottom.jpg" alt="pass bottom" fill className="object-cover opacity-100" />
                 </div>
               </div>
+                
 
               {/* Download button */}
               <button
